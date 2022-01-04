@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int minSubArrayLen(int k, vector<int>& nums) {
+        int n=nums.size();
+        int c=INT_MAX; //jo smallest subarray ko track krega
+        int sum=0;//jo sum ko track krega
+        int s=0,e=0;
+        while(e<n){
+            sum+=nums[e++];
+            while(sum>=k){
+                c=min(c,e-s);
+                sum-=nums[s++];
+            }
+        }
+        return c==INT_MAX?0:c;
+    }
+};
