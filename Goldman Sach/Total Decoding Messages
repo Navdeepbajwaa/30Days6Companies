@@ -1,0 +1,22 @@
+class Solution{
+public:
+		int CountWays(string str){
+		    if(str.size()<1||str[0]=='0') return 0;
+		    if(str.size()==1) return 1;
+		    int mod=1000000007;
+		    long long int count1=1;
+		    long long int count2=1;//to track prev solution
+		    
+		    for(int i=1;i<str.size();++i){
+		        long long int d=str[i]-'0';//char to int conversion
+		        long long int dd=(str[i-1]-'0')*10+d;
+		        long long int count=0;
+		        if(d>0){count=(count+count2)%mod;}
+		        if(dd>=10&&dd<=26){count=(count+count1)%mod;}
+		        count1=count2;
+		        count2=count;
+		    }
+		    
+		    return count2%mod;
+		}
+    };
