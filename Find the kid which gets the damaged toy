@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int distributeincircle(int c,int n,int k){
+    int ans=(c+k-1)%n;
+    if(ans==0){return n;}
+    else{return ans;}
+}
+
+int main() {
+    cout<<distributeincircle(8,5,2);
+    return 0;
+}
